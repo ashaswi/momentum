@@ -3,6 +3,7 @@ import 'package:momentum/screens/signin.dart';
 import 'package:momentum/screens/signup.dart';
 import 'package:momentum/screens/welcome.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         '/welcome': (context) => const Welcome(),
         '/signin': (context) => const Signin(),
         '/signup': (context) => const Signup(),
-      }
+      },
       theme: ThemeData(
         primaryColor: const Color(0xFF7140FC),
         fontFamily: 'Poppins', //default font family
