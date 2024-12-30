@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:momentum/Screens/signin.dart';
-import 'package:momentum/Screens/signup.dart';
-import 'package:momentum/Screens/welcome.dart';
+import 'package:momentum/screens/signin.dart';
+import 'package:momentum/screens/signup.dart';
+import 'package:momentum/screens/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Momentum ',
       //creating page routes 
       routes: {
-        '/welcome': (context) => const Welcome()
-        '/signin': (context) => const Signin()
-        '/signup': (context) => const Signup()
+        '/welcome': (context) => const Welcome(),
+        '/signin': (context) => const Signin(),
+        '/signup': (context) => const Signup(),
       }
       theme: ThemeData(
         primaryColor: const Color(0xFF7140FC),
@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
         // creating text theme
 
         textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins')
-          headlineLarge: TextStyle(fontSize: 32, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins')
+          displayLarge: TextStyle(fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          headlineLarge: TextStyle(fontSize: 32, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
           bodyLarge: TextStyle(fontSize: 16, color: Colors.black, fontFamily: 'Poppins'),
           bodyMedium: TextStyle(fontSize: 14, color: Colors.grey, fontFamily: 'Poppins'),
         ),
