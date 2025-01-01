@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       color: Colors.white,
-      initialRoute: '/welcome', //setting initial route so that welcome page opens when app is started
+      initialRoute: '/welcome',
+      debugShowCheckedModeBanner: false, //setting initial route so that welcome page opens when app is started
     );
   }
 }
