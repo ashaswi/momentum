@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:momentum/screens/signin.dart';
 import 'package:momentum/screens/signup.dart';
 import 'package:momentum/screens/welcome.dart';
-
+import 'package:momentum/screens/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/welcome': (context) => const Welcome(),
         '/signin': (context) => const Signin(),
         '/signup': (context) => const Signup(),
+        '/dashboard': (context) => const Dashboard(),
       },
       theme: ThemeData(
         primaryColor: const Color(0xFF7140FC),
