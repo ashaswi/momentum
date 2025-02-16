@@ -24,6 +24,7 @@ class User {
       'username': username,
       'email': email,
       'password': password,
+      'confirm_password': confirmPassword
     };
   }
 }

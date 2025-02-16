@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:momentum/api/dto/users.dart';
-import 'package:momentum/api/service/users.dart/create_user_service.dart';
+import 'package:momentum/api/service/users/create_user_service.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
