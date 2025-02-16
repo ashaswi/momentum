@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:momentum/api/dto/users.dart';
@@ -12,6 +13,7 @@ class SignupForm extends StatefulWidget {
 
 class _SignupFormState extends State<SignupForm> {
   bool _isLoading = false;
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -20,6 +22,7 @@ class _SignupFormState extends State<SignupForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,12 +39,14 @@ class _SignupFormState extends State<SignupForm> {
           const SizedBox(height: 30),
           Text('Password', style: Theme.of(context).textTheme.bodyLarge),
           TextFormField(
+            obscureText: true,
             controller: _passwordController,
           ),
           const SizedBox(height: 30),
           Text('Confirm Password',
               style: Theme.of(context).textTheme.bodyLarge),
           TextFormField(
+            obscureText: true,
             controller: _confirmPasswordController,
           ),
           const SizedBox(height: 50),
@@ -63,6 +68,23 @@ class _SignupFormState extends State<SignupForm> {
               });
               if (response.statusCode == 201) {
                 Navigator.pushNamed(context, '/dashboard');
+              } else {
+                var errors = jsonDecode(response.body);
+                String firstKey = errors.keys.first;
+                String errorMessage = errors[firstKey][0];
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    action: SnackBarAction(
+                      label: 'X',
+                      textColor: Colors.white,
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      },
+                    ),
+                    content: Text("$firstKey: $errorMessage"),
+                    backgroundColor: Colors.red,
+                  ),
+                );
               }
             },
             style: ElevatedButton.styleFrom(
