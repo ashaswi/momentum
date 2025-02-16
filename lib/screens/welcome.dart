@@ -40,7 +40,7 @@ class Welcome extends StatelessWidget {
           const Positioned(
             bottom: 40,
             right: 20,
-            child: ContinueButton() 
+            child: ContinueButton()
           ),
         ],
       ),
@@ -64,9 +64,9 @@ class Welcome extends StatelessWidget {
         children: [
           // Add the SVG in the desired position
           Positioned(
-            top: -10, 
+            top: -10,
             left: -10,
-            right: -10, 
+            right: -10,
             child: SvgPicture.asset(
               'assets/images/gradient/Gradient.svg',
               fit: BoxFit.cover,
@@ -102,7 +102,7 @@ class Welcome extends StatelessWidget {
           const Positioned(
             bottom: 40,
             right: 20,
-            child: ContinueButton(),
+            child: ContinueButton(route: '/signin'),
           ),
         ],
       ),
