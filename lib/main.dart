@@ -3,6 +3,8 @@ import 'package:momentum/screens/signin.dart';
 import 'package:momentum/screens/signup.dart';
 import 'package:momentum/screens/welcome.dart';
 import 'package:momentum/screens/dashboard.dart';
+import 'package:momentum/Screens/forgot_password.dart';
+import 'package:momentum/Screens/forgot_password_request.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
         '/signin': (context) => const Signin(),
         '/signup': (context) => const Signup(),
         '/dashboard': (context) => const Dashboard(),
+        '/forgot-password-request': (context) => const ForgotPasswordRequest(),
+        '/forgot-password': (context) => const ForgotPassword(),
       },
       theme: ThemeData(
         primaryColor: const Color(0xFF7140FC),
