@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class BaseScreen extends StatelessWidget {
   final Widget child;
-  const BaseScreen({super.key, required this.child});
+  //const BaseScreen({super.key, required this.child});
+  final bool hasPadding;
+  const BaseScreen({super.key, required this.child, this.hasPadding = true});
 
   @override
   Widget build(BuildContext context) {

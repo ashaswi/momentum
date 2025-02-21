@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Momentum ',
-      //creating page routes 
-      routes: {
+      //creating page routes
+       routes: {
         '/welcome': (context) => const Welcome(),
         '/signin': (context) => const Signin(),
         '/signup': (context) => const Signup(),
