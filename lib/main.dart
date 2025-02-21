@@ -4,6 +4,7 @@ import 'package:momentum/screens/signup.dart';
 import 'package:momentum/screens/welcome.dart';
 import 'package:momentum/screens/dashboard.dart';
 import 'package:momentum/Screens/forgot_password.dart';
+import 'package:momentum/Screens/pomodoro.dart';
 import 'package:momentum/Screens/forgot_password_request.dart';
 
 void main() {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/dashboard': (context) => const Dashboard(),
         '/forgot-password-request': (context) => const ForgotPasswordRequest(),
         '/forgot-password': (context) => const ForgotPassword(),
+        '/pomodoro'  : (context) => const Pomodoro(),
       },
       theme: ThemeData(
         primaryColor: const Color(0xFF7140FC),
@@ -37,8 +39,12 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
           displayLarge: TextStyle(fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
           headlineLarge: TextStyle(fontSize: 32, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          bodyLarge: TextStyle(fontSize: 16, color: Colors.black, fontFamily: 'Poppins'),
-          bodyMedium: TextStyle(fontSize: 14, color: Colors.grey, fontFamily: 'Poppins'),
+          // bodyLarge: TextStyle(fontSize: 16, color: Colors.black, fontFamily: 'Poppins'),
+         // bodyMedium: TextStyle(fontSize: 14, color: Colors.grey, fontFamily: 'Poppins'),
+          headlineSmall: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          headlineMedium: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          bodyLarge: TextStyle(fontSize: 18, color: Colors.black, fontFamily: 'Poppins'),
+          bodyMedium: TextStyle(fontSize: 14, color: Colors.black, fontFamily: 'Poppins'),
         ),
         primaryTextTheme: const  TextTheme(headlineLarge: TextStyle(color: Colors.black)),
         useMaterial3: true,

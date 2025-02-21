@@ -3,13 +3,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:momentum/Screens/base_screen.dart';
 import 'package:momentum/components/Header.dart';
 import 'package:momentum/components/rounded_card.dart';
-//import 'package:momentum/components/curved_curtain.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
+        hasPadding: false,
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

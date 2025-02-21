@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:momentum/api/dto/login_dto.dart';
 import 'package:momentum/api/service/auth/login_service.dart';
-import 'package:momentum/api/dto/login_dto.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SigninForm extends StatefulWidget {
   const SigninForm({super.key});
@@ -53,6 +52,9 @@ class _SigninFormState extends State<SigninForm> {
                   _isLoading = false;
                 });
                 if (response.statusCode == 200) {
+                   final SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  await prefs.setString('token', responseBody['token']);
                   Navigator.pushNamed(context, '/dashboard');
                 } else {
                   String firstKey = responseBody.keys.first;
@@ -100,18 +102,18 @@ class _SigninFormState extends State<SigninForm> {
                 ),
               ],
             ),
-                Center(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/forgot-password-request');
-                    },
-                    child: Text('Forgot Password?',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Colors.purple)),
-                  ),
-                ),
+                 Center(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/forgot-password-request');
+                },
+                child: Text('Forgot Password?',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(color: Colors.purple)),
+              ),
+            ),
           ],
         ),
       ),
