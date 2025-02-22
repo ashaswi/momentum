@@ -8,6 +8,7 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
+      hasPadding: false,
       child: Stack(
         children: [
           // Add the SVG in the desired position

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:momentum/Screens/base_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import 'package:momentum/components/curved_curtain.dart';
+import 'package:momentum/components/curved_curtain.dart';
 import 'package:momentum/forms/signin_form.dart';
 
 class Signin extends StatelessWidget {
@@ -9,6 +9,7 @@ class Signin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
+      hasPadding: false,
       child: Stack(
         children: [
            // Add the SVG in the desired position
@@ -39,7 +40,7 @@ class Signin extends StatelessWidget {
                   ],
                 ),
               )),
-          //Transform.scale(scale: 1.1, child: const CurvedCurtain(height: 600,)),
+          Transform.scale(scale: 1.1, child: const CurvedCurtain()),
         ],
       ),
     );

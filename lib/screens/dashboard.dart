@@ -9,7 +9,7 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-        hasPadding: false,
+        hasPadding: true,
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
