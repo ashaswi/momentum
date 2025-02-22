@@ -10,6 +10,7 @@ class Signup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
+      hasPadding: false,
       child: Stack(
         children: [
            // Adding the SVG in the desired position

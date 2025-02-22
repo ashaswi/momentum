@@ -6,7 +6,7 @@ import 'package:momentum/screens/dashboard.dart';
 import 'package:momentum/Screens/forgot_password.dart';
 import 'package:momentum/Screens/pomodoro.dart';
 import 'package:momentum/Screens/forgot_password_request.dart';
-
+import 'package:momentum/Screens/meditate.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/forgot-password-request': (context) => const ForgotPasswordRequest(),
         '/forgot-password': (context) => const ForgotPassword(),
         '/pomodoro'  : (context) => const Pomodoro(),
+        '/meditate' : (context) => const Meditate(),
       },
       theme: ThemeData(
         primaryColor: const Color(0xFF7140FC),

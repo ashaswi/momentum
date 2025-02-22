@@ -124,9 +124,10 @@ class Dashboard extends StatelessWidget {
 
         RoundedCard(
           icon: 'assets/images/icons/meditation_icon.svg',
-          title: 'Your journal',
+          title: 'Meditation',
           textColor: Colors.white,
           startBtnColor: Colors.white,
+          startBtnRoute: '/meditate',
           backgroundColor: Theme.of(context).primaryColor,
         ),
         const SizedBox(
