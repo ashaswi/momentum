@@ -4,4 +4,5 @@ class ApiRoutes {
   static const String login = 'login/';
   static const String forgotPasswordRequest = 'password-reset-code/';
   static const String forgotPassword = 'reset-password/';
+  static const String journal = 'journals/';
 }

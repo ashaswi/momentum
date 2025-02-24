@@ -67,7 +67,7 @@ class _SignupFormState extends State<SignupForm> {
                 _isLoading = false;
               });
               if (response.statusCode == 201) {
-                Navigator.pushNamed(context, '/dashboard');
+                Navigator.pushNamed(context, '/login');
               } else {
                 var errors = jsonDecode(response.body);
                 String firstKey = errors.keys.first;

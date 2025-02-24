@@ -30,7 +30,7 @@ class Dashboard extends StatelessWidget {
         const RoundedCard(
           icon: 'assets/images/icons/meetup_icon.svg',
           title: 'Your journal',
-          startBtnRoute: '/dashboard',
+          startBtnRoute: '/journal',
           backgroundColor: Color(0xFFE7DEFF),
         ),
         const SizedBox(

@@ -78,7 +78,7 @@ class _SigninFormState extends State<SigninForm> {
                   : Text('Login',
                       style: Theme.of(context)
                           .textTheme
-                          .bodyMedium
+                          .headlineSmall
                           ?.copyWith(color: Colors.white)),
             ),
             const SizedBox(height: 15),
