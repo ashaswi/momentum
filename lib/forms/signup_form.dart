@@ -89,17 +89,21 @@ class _SignupFormState extends State<SignupForm> {
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Theme.of(context).primaryColor,
-              minimumSize: const Size(double.infinity, 50),
+              minimumSize: const Size(double.infinity, 45),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              )
             ),
             child: _isLoading
                 ? const CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                   )
-                : Text('Signup',
+                : Text('Create Account',
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium
                         ?.copyWith(color: Colors.white)),
+              
           )
         ],
       ),

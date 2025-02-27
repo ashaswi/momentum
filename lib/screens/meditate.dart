@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 class Meditate extends StatelessWidget {
   const Meditate({super.key});
@@ -16,8 +16,9 @@ class Meditate extends StatelessWidget {
       ),
     );
   }
-}
-/*import 'package:flutter/material.dart';
+}*/
+
+import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Meditate extends StatefulWidget {
@@ -45,4 +46,4 @@ class _MeditateState extends State<Meditate> {
       body: WebViewWidget(controller: _controller),
     );
   }
-}*/
+}

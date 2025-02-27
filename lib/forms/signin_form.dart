@@ -70,6 +70,9 @@ class _SigninFormState extends State<SigninForm> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).primaryColor,
                 minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0), // Less rounded edges
+    ),
               ),
               child: _isLoading
                   ? const CircularProgressIndicator(
@@ -94,7 +97,7 @@ class _SigninFormState extends State<SigninForm> {
                   onTap: () {
                     Navigator.pushNamed(context, '/signup');
                   },
-                  child: Text('Signup',
+                  child: Text('Sign up',
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium

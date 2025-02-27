@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:momentum/Screens/base_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:momentum/components/curved_curtain.dart';
+//import 'package:momentum/components/curved_curtain.dart';
 import 'package:momentum/forms/signin_form.dart';
 
 class Signin extends StatelessWidget {
@@ -14,7 +14,7 @@ class Signin extends StatelessWidget {
         children: [
            // Add the SVG in the desired position
           Positioned(
-            top: -100,
+            top: -90,
             left: -10,
             right: -10,
             child: SvgPicture.asset(
@@ -24,7 +24,7 @@ class Signin extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: 350,
+              top: 370,
               left: 30,
               child: Container(
                 width: MediaQuery.of(context).size.width -70,
@@ -36,11 +36,16 @@ class Signin extends StatelessWidget {
                       'Sign in',
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
+                    const SizedBox(height: 16), // Add spacing
+                    SvgPicture.asset(
+                    'assets/images/icons/line_icon.svg',
+                      width: 80,  // Adjust width as needed
+                     ),
+                    const SizedBox(height: 16), // Add spacing before the form
                     SigninForm(),
                   ],
                 ),
-              )),
-          Transform.scale(scale: 1.1, child: const CurvedCurtain()),
+              ))
         ],
       ),
     );

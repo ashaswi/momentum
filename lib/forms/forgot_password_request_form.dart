@@ -70,6 +70,9 @@ class _ForgotPassordRequestFormState extends State<ForgotPassordRequestForm> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).primaryColor,
                 minimumSize: const Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0), // Less rounded edges
+    ),
               ),
               child: _isLoading
                   ? const CircularProgressIndicator(

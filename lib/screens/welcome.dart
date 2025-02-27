@@ -38,7 +38,7 @@ class Welcome extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Lorem ipsum dolor sit amet consectetur. Lorem id sit ',
+                      'Keep the Momentum going – your journey begins now!',
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.grey.withOpacity(0.8),

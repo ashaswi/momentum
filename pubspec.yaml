@@ -72,6 +72,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/icons/
+    - assets/images/icons/line_icon.svg
 
 
 
