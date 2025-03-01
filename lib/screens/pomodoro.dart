@@ -46,8 +46,129 @@ class _PomodoroState extends State<Pomodoro> {
     return value.toString().padLeft(2, '0'); // Ensure 2-digit format
   }
 
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: Stack(
+      children: [
+        Positioned.fill(
+          child: Container(
+            color: onFocus ? Colors.white : const Color(0xFF7140FC),
+          ),
+        ),
+        Positioned.fill(
+          child: SvgPicture.asset(
+            onFocus
+                ? 'assets/images/icons/background_elements.svg'
+                : 'assets/images/icons/background_elements_break.svg',
+            fit: BoxFit.cover,
+            placeholderBuilder: (context) => Container(
+              color: Colors.red, // Debugging: Shows red if SVG fails to load
+            ),
+          ),
+        ),
+        SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: onFocus
+                            ? Colors.white
+                            : Theme.of(context).primaryColor,
+                        width: 2),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: SvgPicture.asset(
+                    onFocus
+                        ? 'assets/images/icons/focus_icon.svg'
+                        : 'assets/images/icons/break_icon.svg',
+                    height: 40,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: 350,
+                  height: 350,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                        color: onFocus
+                            ? Colors.white
+                            : Theme.of(context).primaryColor,
+                        width: 3),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        formatTime(minutes),
+                        style: TextStyle(
+                            fontSize: 157,
+                            fontWeight: FontWeight.w700,
+                            color: onFocus
+                                ? const Color(0xFF7140FC)
+                                : Colors.white,
+                            fontFamily: 'Poppins',
+                            height: 0.85),
+                      ),
+                      Text(
+                        formatTime(seconds),
+                        style: TextStyle(
+                          height: 0.85,
+                          fontSize: 157,
+                          fontWeight: FontWeight.w700,
+                          color: onFocus
+                              ? const Color(0xFF7140FC)
+                              : Colors.white,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        if (!isRunning) {
+                          startTimer();
+                        }
+                      },
+                      child: SvgPicture.asset(
+                        onFocus
+                            ? 'assets/images/icons/start_btn.svg'
+                            : 'assets/images/icons/start_btn_break.svg',
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    GestureDetector(
+                      onTap: stopTimer,
+                      child: SvgPicture.asset(
+                        onFocus
+                            ? 'assets/images/icons/pause_btn.svg'
+                            : 'assets/images/icons/pause_btn_break.svg',
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+}
 
-  @override
+ /* @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -178,4 +299,4 @@ class _PomodoroState extends State<Pomodoro> {
       ),
     );
   }
-}
+}*/
