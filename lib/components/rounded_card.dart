@@ -8,7 +8,7 @@ class RoundedCard extends StatelessWidget {
   final Color textColor;
   final String startBtnRoute;
   final String icon;
-  final String buttonText; // Use this parameter
+  final String buttonText;
 
   const RoundedCard({
     super.key,
@@ -45,7 +45,7 @@ class RoundedCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    buttonText, // Use the passed buttonText here
+                    buttonText, 
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: textColor,
                         ),

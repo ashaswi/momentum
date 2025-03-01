@@ -141,10 +141,11 @@ class Dashboard extends StatelessWidget {
           startBtnColor: Colors.white,
           startBtnRoute: '/pomodoro',
           backgroundColor: Theme.of(context).primaryColor,
-          buttonText: "Let's Focus", 
+          buttonText: "Let's Focus",
         ),
 
       ],
-    ));
+    )
+    );
   }
 }
