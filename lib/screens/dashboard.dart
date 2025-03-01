@@ -16,6 +16,7 @@ class Dashboard extends StatelessWidget {
         const Header(
           primayHeaderText: "Welcome Back,",
           secondaryHeaderText: "Lorem!",
+          secondaryTextSize: 20,
         ),
         const SizedBox(
           height: 20,
@@ -106,11 +107,10 @@ class Dashboard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                'Quote helpline',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-              ),
+                'Dial #1166 for free, confidential support',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Colors.grey,),
+               ),
               const SizedBox(
                 width: 10,
               ),
@@ -129,6 +129,7 @@ class Dashboard extends StatelessWidget {
           startBtnColor: Colors.white,
           startBtnRoute: '/meditate',
           backgroundColor: Theme.of(context).primaryColor,
+          buttonText: "Let's Relax",
         ),
         const SizedBox(
           height: 20,
@@ -140,7 +141,9 @@ class Dashboard extends StatelessWidget {
           startBtnColor: Colors.white,
           startBtnRoute: '/pomodoro',
           backgroundColor: Theme.of(context).primaryColor,
+          buttonText: "Let's Focus", 
         ),
+
       ],
     ));
   }

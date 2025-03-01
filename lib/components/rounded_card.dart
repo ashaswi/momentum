@@ -8,6 +8,8 @@ class RoundedCard extends StatelessWidget {
   final Color textColor;
   final String startBtnRoute;
   final String icon;
+  final String buttonText; // Use this parameter
+
   const RoundedCard({
     super.key,
     required this.icon,
@@ -15,7 +17,8 @@ class RoundedCard extends StatelessWidget {
     this.startBtnColor = const Color(0xFF7140FC),
     this.backgroundColor = const Color(0xFF7140FC),
     this.startBtnRoute = "/dashboard",
-    this.textColor = Colors.black,
+    this.textColor = const Color(0xFF371B34),
+    this.buttonText = "Let's Open Up", // Default text
   });
 
   @override
@@ -28,54 +31,46 @@ class RoundedCard extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-              flex: 8,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 20, top: 15, bottom: 15, right: 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: textColor,
-                              ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Lets open up",
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: textColor,
-                          ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () => Navigator.pushNamed(context, startBtnRoute),
-                          child: Text(
-                            "Start now",
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall
-                                ?.copyWith(color: startBtnColor),
-                          ),
+            flex: 8,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15, right: 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          color: textColor,
                         ),
-                        const SizedBox(
-                          width: 5,
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    buttonText, // Use the passed buttonText here
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: textColor,
                         ),
-                        SvgPicture.asset(
-                            'assets/images/icons/calendar_icon.svg'),
-                      ],
-                    ),
-                  ],
-                ),
-              )),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => Navigator.pushNamed(context, startBtnRoute),
+                        child: Text(
+                          "Start now",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(color: startBtnColor),
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      SvgPicture.asset('assets/images/icons/calendar_icon.svg'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
           Expanded(
             flex: 4,
             child: Center(

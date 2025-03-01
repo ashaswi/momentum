@@ -3,11 +3,12 @@ import 'package:momentum/screens/signin.dart';
 import 'package:momentum/screens/signup.dart';
 import 'package:momentum/screens/welcome.dart';
 import 'package:momentum/screens/dashboard.dart';
-import 'package:momentum/Screens/forgot_password.dart';
-import 'package:momentum/Screens/pomodoro.dart';
-import 'package:momentum/Screens/forgot_password_request.dart';
-import 'package:momentum/Screens/meditate.dart';
-import 'package:momentum/Screens/journal.dart';
+import 'package:momentum/screens/forgot_password.dart';
+import 'package:momentum/screens/pomodoro.dart';
+import 'package:momentum/screens/forgot_password_request.dart';
+import 'package:momentum/screens/meditate.dart';
+import 'package:momentum/screens/journal.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,46 +16,59 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Momentum ',
-      //creating page routes
-       routes: {
+      title: 'Momentum',
+      
+      // Defining routes for navigation
+      routes: {
         '/welcome': (context) => const Welcome(),
         '/signin': (context) => const Signin(),
         '/signup': (context) => const Signup(),
         '/dashboard': (context) => const Dashboard(),
         '/forgot-password-request': (context) => const ForgotPasswordRequest(),
         '/forgot-password': (context) => const ForgotPassword(),
-        '/pomodoro'  : (context) => const Pomodoro(),
-        '/meditate' : (context) => const Meditate(),
-        '/journal' : (context) => Journal(),
+        '/pomodoro': (context) => const Pomodoro(),
+        '/meditate': (context) => const Meditate(),
+        '/journal': (context) => const Journal(),
       },
+
       theme: ThemeData(
         primaryColor: const Color(0xFF7140FC),
-        fontFamily: 'Poppins', //default font family
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: 'Poppins', // Setting default font
 
-        // creating text theme
-
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          headlineLarge: TextStyle(fontSize: 32, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          // bodyLarge: TextStyle(fontSize: 16, color: Colors.black, fontFamily: 'Poppins'),
-         // bodyMedium: TextStyle(fontSize: 14, color: Colors.grey, fontFamily: 'Poppins'),
-          headlineSmall: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          headlineMedium: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          bodyLarge: TextStyle(fontSize: 18, color: Colors.black, fontFamily: 'Poppins'),
-          bodyMedium: TextStyle(fontSize: 14, color: Colors.black, fontFamily: 'Poppins'),
+        // Define Color Scheme
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          primary: const Color(0xFF7140FC),
+          secondary: const Color(0xFF371B34), // Using your specified color
+          background: Colors.white,
+          onPrimary: Colors.white,
+          onSecondary: Colors.white,
         ),
-        primaryTextTheme: const  TextTheme(headlineLarge: TextStyle(color: Colors.black)),
+
+        // Defining Text Theme with Correct Colors
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(fontSize: 40, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          headlineLarge: TextStyle(fontSize: 32, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          headlineMedium: TextStyle(fontSize: 24, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          headlineSmall: TextStyle(fontSize: 16, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          bodyLarge: TextStyle(fontSize: 18, color: Color(0xFF371B34), fontFamily: 'Poppins'),
+          bodyMedium: TextStyle(fontSize: 14, color: Color(0xFF371B34), fontFamily: 'Poppins'),
+        ),
+
+        primaryTextTheme: const TextTheme(
+          headlineLarge: TextStyle(color: Color(0xFF371B34)),
+        ),
+
+        // Material 3 for better UI
         useMaterial3: true,
       ),
+
       color: Colors.white,
       initialRoute: '/welcome',
-      debugShowCheckedModeBanner: false, //setting initial route so that welcome page opens when app is started
+      debugShowCheckedModeBanner: false, // Hiding debug banner
     );
   }
 }
