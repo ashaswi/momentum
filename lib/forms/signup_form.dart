@@ -26,30 +26,30 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 40),
+          const SizedBox(height: 20),
           Text('Email', style: Theme.of(context).textTheme.bodyLarge),
           TextFormField(
             controller: _emailController,
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           Text('Username', style: Theme.of(context).textTheme.bodyLarge),
           TextFormField(
             controller: _usernameController,
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           Text('Password', style: Theme.of(context).textTheme.bodyLarge),
           TextFormField(
             obscureText: true,
             controller: _passwordController,
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           Text('Confirm Password',
               style: Theme.of(context).textTheme.bodyLarge),
           TextFormField(
             obscureText: true,
             controller: _confirmPasswordController,
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () async {
               setState(() {
