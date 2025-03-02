@@ -6,7 +6,7 @@ class CurvedCurtain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'assets/images/curved_curtain.svg',
+      'assets/images/gradient/Gradient.svg',
 );
 }
 }
