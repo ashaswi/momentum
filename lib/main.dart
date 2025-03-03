@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Momentum',
-      
+
       // Defining routes for navigation
       routes: {
         '/welcome': (context) => const Welcome(),
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
 
         // Defining Text Theme with Correct Colors
         textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 40, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+          displayLarge: TextStyle(fontSize: 38, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
           headlineLarge: TextStyle(fontSize: 32, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
           headlineMedium: TextStyle(fontSize: 24, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
           headlineSmall: TextStyle(fontSize: 16, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),

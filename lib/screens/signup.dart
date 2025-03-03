@@ -14,13 +14,13 @@ class Signup extends StatelessWidget {
         children: [
            // Add the SVG in the desired position
           Positioned(
-            top: -100,
+            top: -330,
             left: -10,
             right: -10,
             child: SvgPicture.asset(
               'assets/images/gradient/Gradient.svg',
               fit: BoxFit.cover,
-              height: 300, // Adjust height based on the desired size
+              height: 500, // Adjust height based on the desired size
             ),
           ),
           Positioned(
@@ -32,9 +32,9 @@ class Signup extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Sign up',
-                      style: Theme.of(context).textTheme.displayLarge,
+                      style: TextStyle(fontSize: 38, color: Color(0xFF424242), fontWeight: FontWeight.w500, fontFamily: 'Poppins'),
                     ),
                      const SizedBox(height: 16), // Add spacing
                     SvgPicture.asset(
