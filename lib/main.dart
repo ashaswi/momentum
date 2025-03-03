@@ -8,6 +8,8 @@ import 'package:momentum/screens/pomodoro.dart';
 import 'package:momentum/screens/forgot_password_request.dart';
 import 'package:momentum/screens/meditate.dart';
 import 'package:momentum/screens/journal.dart';
+import 'package:momentum/screens/mood.dart';
+
 
 void main() {
   runApp(const MyApp());
