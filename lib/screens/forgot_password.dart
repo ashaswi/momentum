@@ -20,7 +20,7 @@ class ForgotPassword extends StatelessWidget {
             child: SvgPicture.asset(
               'assets/images/gradient/Gradient.svg',
               fit: BoxFit.cover,
-              height: 500, // Adjust height based on the desired size
+              height: 600, // Adjust height based on the desired size
             ),
           ),
           Positioned(
