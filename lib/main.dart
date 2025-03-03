@@ -9,7 +9,7 @@ import 'package:momentum/screens/forgot_password_request.dart';
 import 'package:momentum/screens/meditate.dart';
 import 'package:momentum/screens/journal.dart';
 import 'package:momentum/screens/mood.dart';
-
+import 'package:momentum/screens/survey_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/pomodoro': (context) => const Pomodoro(),
         '/meditate': (context) => const Meditate(),
         '/journal': (context) => const Journal(),
+        '/survey': (context) => const SurveyScreen(),
+        '/mood': (context) => const Mood(),
       },
 
       theme: ThemeData(
