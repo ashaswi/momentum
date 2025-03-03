@@ -83,12 +83,12 @@ class Dashboard extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset('assets/images/icons/mood_log.svg'),
+                        SvgPicture.asset('assets/images/icons/habit_icon.svg'),
                         const SizedBox(
                           width: 10,
                         ),
                         Text(
-                          'Mood Log',
+                          'Habit Tracker',
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium
@@ -129,6 +129,18 @@ class Dashboard extends StatelessWidget {
             height: 20,
           ),
           RoundedCard(
+            icon: 'assets/images/icons/mood_log_icon.svg',
+            title: 'Mood Log',
+            textColor: Colors.white,
+            startBtnColor: Colors.white,
+            startBtnRoute: '/mood',
+            backgroundColor: Theme.of(context).primaryColor,
+            buttonText: "Let's Log",
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          RoundedCard(
             icon: 'assets/images/icons/meditation_icon.svg',
             title: 'Meditation',
             textColor: Colors.white,
@@ -153,13 +165,13 @@ class Dashboard extends StatelessWidget {
             height: 20,
           ),
           RoundedCard(
-            icon: 'assets/images/icons/timer_icon.svg',
+            icon: 'assets/images/icons/survey_icon.svg',
             title: 'Start Survey',
             textColor: Colors.white,
             startBtnColor: Colors.white,
             startBtnRoute: '/survey',
             backgroundColor: Theme.of(context).primaryColor,
-            buttonText: "Let's Focus",
+            buttonText: "Let's Reflect",
           ),
                 ],
               ),
