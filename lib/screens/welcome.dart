@@ -41,7 +41,7 @@ class Welcome extends StatelessWidget {
                       'Keep the Momentum going – your journey begins now!',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey.withOpacity(0.8),
+                        color: Colors.grey.withOpacity(1),
                       ),
                     )
                   ],

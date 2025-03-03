@@ -74,6 +74,7 @@ flutter:
     - assets/images/icons/
     - assets/images/icons/line_icon.svg
     - assets/images/moods/
+    - assets/images/icons/timer_icon.svg
 
   fonts:
     - family: PoppinsBlack

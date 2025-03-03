@@ -51,7 +51,7 @@ class Dashboard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset('assets/images/icons/journal_icon.svg'),
+                      SvgPicture.asset('assets/images/icons/todo_icon.svg'),
                       const SizedBox(
                         width: 10,
                       ),
@@ -78,7 +78,7 @@ class Dashboard extends StatelessWidget {
                   ),
                   child: GestureDetector(
                     onTap: () => {
-                      Navigator.pushNamed(context, '/mood'),
+                      Navigator.pushNamed(context, '/dashboard'),
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
