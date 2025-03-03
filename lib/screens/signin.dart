@@ -14,7 +14,7 @@ class Signin extends StatelessWidget {
         children: [
            // Add the SVG in the desired position
           Positioned(
-            top: -90,
+            top: -200,
             left: -10,
             right: -10,
             child: SvgPicture.asset(
@@ -24,7 +24,7 @@ class Signin extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: 370,
+              top: 270,
               left: 30,
               child: Container(
                 width: MediaQuery.of(context).size.width -70,
@@ -32,9 +32,9 @@ class Signin extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                   const Text(
                       'Sign in',
-                      style: Theme.of(context).textTheme.displayLarge,
+                      style: TextStyle(fontSize: 38, color: Color(0xFF424242), fontWeight: FontWeight.w500, fontFamily: 'Poppins'),
                     ),
                     const SizedBox(height: 16), // Add spacing
                     SvgPicture.asset(
