@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
           primary: const Color(0xFF7140FC),
-          secondary: const Color(0xFF371B34), // Using your specified color
+          secondary: const Color(0xFF371B34),
           background: Colors.white,
           onPrimary: Colors.white,
           onSecondary: Colors.white,

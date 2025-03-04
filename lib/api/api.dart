@@ -13,17 +13,25 @@ class Api  {
       'Authorization': 'Token $token',
     });
   }
-   static Future<http.Response> post(
+  static Future<http.Response> post(
       String url, Map<String, dynamic> body) async {
     String fullUrl = ApiRoutes.baseUrl + url;
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? token = prefs.getString('token');
-    return await http
-        .post(Uri.parse(fullUrl), body: jsonEncode(body), headers: {
+    Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': 'Token $token'
-    });
-    
+    };
+
+    // Add the Authorization header only if the token is not null
+    if (token != null) {
+      headers['Authorization'] = 'Token $token';
+    }
+
+    return await http.post(
+      Uri.parse(fullUrl),
+      body: jsonEncode(body),
+      headers: headers,
+    );
   }
 }
