@@ -28,7 +28,7 @@ class _SurveyScreenState extends State<SurveyScreen> {
       },
     ),
   )
-  ..loadRequest(Uri.parse('https://docs.google.com/forms'));
+  ..loadRequest(Uri.parse('https://forms.gle/VaxwNGQeSYx8bCFZ8'));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
