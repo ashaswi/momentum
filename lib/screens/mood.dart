@@ -44,7 +44,7 @@ class _MoodState extends State<Mood> {
       } else {
         _listIsLoading = false;
         const SnackBar(
-          content: Text('Failed to fetch journals'),
+          content: Text('Failed to fetch mood entries'),
           backgroundColor: Colors.red,
         );
       }
@@ -53,7 +53,7 @@ class _MoodState extends State<Mood> {
     } catch (e) {
       setState(() => _listIsLoading = false);
       SnackBar(
-        content: Text('Failed to fetch journals: $e'),
+        content: Text('Failed to fetch mood entries: $e'),
         backgroundColor: Colors.red,
       );
     }
@@ -85,7 +85,25 @@ class _MoodState extends State<Mood> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScreen(
+      return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF371B34)), 
+          onPressed: () {
+            Navigator.pushNamed(context, '/dashboard');
+          },
+        ),
+        title: const Text(
+          'Mood Tracker',
+          style: TextStyle(
+            color: Color(0xFF371B34),
+          ),
+        ),
+      ),
+      body: BaseScreen(
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
@@ -287,6 +305,7 @@ class _MoodState extends State<Mood> {
                   ),
           ],
         ),
+      ),
       ),
     );
   }

@@ -78,7 +78,7 @@ class Dashboard extends StatelessWidget {
                   ),
                   child: GestureDetector(
                     onTap: () => {
-                      Navigator.pushNamed(context, '/dashboard'),
+                      Navigator.pushNamed(context, '/habit'),
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +166,7 @@ class Dashboard extends StatelessWidget {
           ),
           RoundedCard(
             icon: 'assets/images/icons/survey_icon.svg',
-            title: 'Start Survey',
+            title: 'Survey',
             textColor: Colors.white,
             startBtnColor: Colors.white,
             startBtnRoute: '/survey',

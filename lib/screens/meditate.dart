@@ -12,7 +12,24 @@ class Meditate extends StatefulWidget {
 class _MeditateState extends State<Meditate> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   return Scaffold(
+      extendBodyBehindAppBar: true, 
+      appBar: AppBar(
+        backgroundColor: Colors.transparent, 
+        elevation: 0, 
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF371B34)), 
+          onPressed: () {
+            Navigator.pushNamed(context, '/dashboard'); 
+          },
+        ),
+        title: const Text(
+          'Meditation',
+          style: TextStyle(
+            color: Color(0xFF371B34), 
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           Positioned.fill(

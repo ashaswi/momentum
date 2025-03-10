@@ -32,11 +32,11 @@ class ForgotPasswordRequest extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Reset',
-                      style: Theme.of(context).textTheme.displayLarge,
+                      style: TextStyle(fontSize: 38, color: Color(0xFF424242), fontWeight: FontWeight.w500, fontFamily: 'Poppins'),
                     ),
-                       const SizedBox(height: 16), // Add spacing
+                       const SizedBox(height: 10), // Add spacing
                     SvgPicture.asset(
                     'assets/images/icons/line_icon.svg',
                       width: 80,  // Adjust width as needed

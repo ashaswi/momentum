@@ -20,7 +20,7 @@ class _SigninFormState extends State<SigninForm> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        child: Form(
+      child: Form(
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +52,7 @@ class _SigninFormState extends State<SigninForm> {
                   _isLoading = false;
                 });
                 if (response.statusCode == 200) {
-                   final SharedPreferences prefs =
+                  final SharedPreferences prefs =
                       await SharedPreferences.getInstance();
                   await prefs.setString('token', responseBody['token']);
                   Navigator.pushNamed(context, '/dashboard');
@@ -64,7 +64,7 @@ class _SigninFormState extends State<SigninForm> {
                       content: Text("$firstKey: $errorMsg"),
                       backgroundColor: Colors.red,
                     ),
-           );
+                );
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -72,7 +72,7 @@ class _SigninFormState extends State<SigninForm> {
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0), // Less rounded edges
-    ),
+                ),
               ),
               child: _isLoading
                   ? const CircularProgressIndicator(
@@ -105,7 +105,7 @@ class _SigninFormState extends State<SigninForm> {
                 ),
               ],
             ),
-                 Center(
+            Center(
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/forgot-password-request');

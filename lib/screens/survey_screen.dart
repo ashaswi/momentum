@@ -30,9 +30,28 @@ class _SurveyScreenState extends State<SurveyScreen> {
   )
   ..loadRequest(Uri.parse('https://forms.gle/VaxwNGQeSYx8bCFZ8'));
   @override
-  Widget build(BuildContext context) {
+ Widget build(BuildContext context) {
     return Scaffold(
-      body:  SafeArea(child: WebViewWidget(controller: controller)),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF371B34)),
+          onPressed: () {
+            Navigator.pushNamed(context, '/dashboard');
+          },
+        ),
+        title: const Text(
+          'Survey',
+          style: TextStyle(
+            color: Color(0xFF371B34),
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: WebViewWidget(controller: controller),
+      ),
     );
   }
 }

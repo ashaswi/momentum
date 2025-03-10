@@ -53,9 +53,27 @@ class _JournalState extends State<Journal> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScreen(
-      child: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF371B34)), 
+          onPressed: () {
+            Navigator.pushNamed(context, '/dashboard');
+          },
+        ),
+        title: const Text(
+          'Journal',
+          style: TextStyle(
+            color: Color(0xFF371B34),
+          ),
+        ),
+      ),
+      body: BaseScreen(
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -203,15 +221,16 @@ class _JournalState extends State<Journal> {
                             color: Colors.white,
                             fontSize: 12,
                             fontWeight: FontWeight.w300,
-                          ),
                         ),
-                      ]
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                  ),
-                  );
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

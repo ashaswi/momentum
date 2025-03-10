@@ -32,9 +32,9 @@ class ForgotPassword extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                      const Text(
                       'Reset',
-                      style: Theme.of(context).textTheme.displayLarge,
+                      style: TextStyle(fontSize: 38, color: Color(0xFF424242), fontWeight: FontWeight.w500, fontFamily: 'Poppins'),
                     ),
                        const SizedBox(height: 16), // Add spacing
                     SvgPicture.asset(
