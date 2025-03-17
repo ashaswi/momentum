@@ -6,5 +6,6 @@ class ApiRoutes {
   static const String forgotPassword = 'reset-password/';
   static const String journal = 'journals/';
   static const String mood = 'mood_entries/';
-    static const String habit = 'habits/';
+  static const String habit = 'habits/';
+  static const String task = 'tasks/';
 }
