@@ -26,7 +26,7 @@ class ForgotPasswordRequest extends StatelessWidget {
           Positioned(
               top: 350,
               left: 30,
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width -70,
                // color: Colors.white,
                 child: Column(

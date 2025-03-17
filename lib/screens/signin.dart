@@ -26,7 +26,7 @@ class Signin extends StatelessWidget {
           Positioned(
               top: 270,
               left: 30,
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width -70,
                // color: Colors.white,
                 child: Column(
@@ -42,7 +42,7 @@ class Signin extends StatelessWidget {
                       width: 80,  // Adjust width as needed
                      ),
                     const SizedBox(height: 16), // Add spacing before the form
-                    SigninForm(),
+                    const SigninForm(),
                   ],
                 ),
               ))
