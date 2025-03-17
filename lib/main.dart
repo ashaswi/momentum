@@ -11,6 +11,7 @@ import 'package:momentum/screens/journal.dart';
 import 'package:momentum/screens/mood.dart';
 import 'package:momentum/screens/survey_screen.dart';
 import 'package:momentum/screens/habit.dart';
+import 'package:momentum/screens/task.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         '/survey': (context) => const SurveyScreen(),
         '/mood': (context) => const Mood(),
         '/habit': (context) => const Habit(),
+        '/task': (context) => const Task(),
       },
 
       theme: ThemeData(

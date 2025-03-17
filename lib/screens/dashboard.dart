@@ -48,21 +48,28 @@ class Dashboard extends StatelessWidget {
                     color: const Color(0xFFF4F3F1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset('assets/images/icons/todo_icon.svg'),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'To Do List',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
+                child: GestureDetector(
+                        onTap: () => {
+                          Navigator.pushNamed(context, '/task'),
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                                'assets/images/icons/todo_icon.svg'),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'To Do List',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
                     ],
+                  ),
+
                   ),
                 ),
                 ),

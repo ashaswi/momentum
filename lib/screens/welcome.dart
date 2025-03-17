@@ -25,7 +25,7 @@ class Welcome extends StatelessWidget {
           Positioned(
               top: 480,
               left: 30,
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width - 100,
                 //color: Colors.white,
                 height: MediaQuery.of(context).size.height - 600,
