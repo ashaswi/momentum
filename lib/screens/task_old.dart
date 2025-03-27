@@ -71,6 +71,7 @@ class _TaskState extends State<Task> {
   }
 
   @override
+  
     Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -78,7 +79,7 @@ class _TaskState extends State<Task> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF371B34)),
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF371B34)), 
           onPressed: () {
             Navigator.pushNamed(context, '/dashboard');
           },
@@ -90,7 +91,7 @@ class _TaskState extends State<Task> {
           ),
         ),
       ),
-      body: BaseScreen(
+      body:BaseScreen(
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
@@ -358,11 +359,11 @@ class _TaskState extends State<Task> {
                                               ))
                                           : GestureDetector(
                                               onTap: () async {
-                                                ScaffoldMessenger.of(context)
+ ScaffoldMessenger.of(context)
                                                     .showSnackBar(
                                                         const SnackBar(
                                                   content: Text(
-                                                      "Task removed"),
+                                                      "Task moved to doing"),
                                                   backgroundColor: Colors.green,
                                                 ));
                                                 UpdateTaskService
@@ -393,7 +394,7 @@ class _TaskState extends State<Task> {
           ],
         ),
       ),
-      )
+      ),
     );
   }
 }
