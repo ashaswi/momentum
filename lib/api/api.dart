@@ -37,7 +37,7 @@ class Api {
     );
   }
    static Future<http.Response> put(
-      String url, Map<String, dynamic> body) async {
+    String url, Map<String, dynamic> body) async {
     String fullUrl = ApiRoutes.baseUrl + url;
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? token = prefs.getString('token');

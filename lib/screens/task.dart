@@ -340,11 +340,11 @@ class _TaskState extends State<Task> {
                                               ))
                                           : GestureDetector(
                                               onTap: () async {
- ScaffoldMessenger.of(context)
+                                                ScaffoldMessenger.of(context)
                                                     .showSnackBar(
                                                         const SnackBar(
                                                   content: Text(
-                                                      "Task moved to doing"),
+                                                      "Task removed"),
                                                   backgroundColor: Colors.green,
                                                 ));
                                                 UpdateTaskService
