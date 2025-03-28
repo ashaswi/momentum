@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:momentum/Screens/base_screen.dart';
 import 'package:momentum/components/Header.dart';
 import 'package:momentum/components/rounded_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});

@@ -8,6 +8,7 @@ import 'package:momentum/api/service/task/create_task_service.dart';
 import 'package:momentum/api/service/task/list_task_service.dart';
 import 'package:momentum/api/service/task/update_task_service.dart';
 import 'package:momentum/components/Header.dart';
+import 'package:momentum/api/service/task/delete_task_service.dart';
 
 class Task extends StatefulWidget {
   const Task({super.key});
@@ -19,6 +20,7 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _startDateController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
   bool _isLoading = false;
   List<dynamic> _tasks = [];
   bool _listIsLoading = false;
@@ -107,12 +109,22 @@ class _TaskState extends State<Task> {
             ),
             TextFormField(
               decoration: const InputDecoration(
-                labelText: 'Add Task',
+                labelText: 'Task Name',
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.purple),
                 ),
               ),
               controller: _nameController,
+            ),
+            const SizedBox(height: 10),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Task description',
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.purple),
+                ),
+              ),
+              controller: _descriptionController,
             ),
 
             const SizedBox(height: 20),
@@ -160,6 +172,7 @@ class _TaskState extends State<Task> {
                 TaskDto taskDto = TaskDto(
                   name: _nameController.text,
                   date: _startDateController.text,
+                  description: _descriptionController.text,
                   status: 'doing',
                 );
                 CreateTaskService createTaskService = CreateTaskService();
@@ -320,6 +333,8 @@ class _TaskState extends State<Task> {
                                                           date: _tasks[index]
                                                               ['start_date'],
                                                           status: 'done',
+                                                          description:_tasks[index]
+                                                              ['description'],
                                                         ));
                                                 _fetchTasks(_selectedStatus);
                                               },
@@ -365,25 +380,29 @@ class _TaskState extends State<Task> {
                                                       "Task removed"),
                                                   backgroundColor: Colors.green,
                                                 ));
-                                                UpdateTaskService
-                                                    updateTaskService =
-                                                    UpdateTaskService();
-                                                await updateTaskService
-                                                    .updateTask(
-                                                        _tasks[index]['id'],
-                                                        TaskDto(
-                                                          name: _tasks[index]
-                                                              ['name'],
-                                                          date: _tasks[index]
-                                                              ['start_date'],
-                                                          status: 'doing',
-                                                        ));
+                                                DeleteTaskService
+                                                    deleteTaskService =
+                                                    DeleteTaskService();
+                                                await deleteTaskService
+                                                    .deleteTask(
+                                                  _tasks[index]['id'],
+                                                );
                                                 _fetchTasks(_selectedStatus);
                                               },
                                               child: SvgPicture.asset(
                                                   'assets/images/icons/green_cross.svg')),
                                     ],
                                   ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  _tasks[index]['description'] == null || _tasks[index]['description'] == ''
+                                      ? const SizedBox():
+                                  Row(children: [
+                                    Text(_tasks[index]['description']!,style: const TextStyle(
+                                      color: Colors.white
+                                    ),)
+                                  ],)
                                 ]),
                           ),
                         ),
