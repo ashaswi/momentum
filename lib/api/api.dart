@@ -57,4 +57,24 @@ class Api {
       headers: headers,
     );
   }
+  static Future<http.Response> delete(
+      String url) async {
+    String fullUrl = ApiRoutes.baseUrl + url;
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
+    Map<String, String> headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    };
+
+    // Add the Authorization header only if the token is not null
+    if (token != null) {
+      headers['Authorization'] = 'Token $token';
+    }
+
+    return await http.delete(
+      Uri.parse(fullUrl),
+      headers: headers,
+    );
+  }
 }

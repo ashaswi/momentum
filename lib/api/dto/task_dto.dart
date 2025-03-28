@@ -4,7 +4,7 @@ class TaskDto {
   final String status;
   final String description;
 
-  TaskDto({required this.name, required this.date,required this.status,this.description});
+  TaskDto({required this.name, required this.date,required this.status,required this.description});
 
   factory TaskDto.fromJson(Map<String, dynamic> json) {
     return TaskDto(
