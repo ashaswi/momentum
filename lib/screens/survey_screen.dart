@@ -93,7 +93,7 @@ late WebViewController _controller;
           if (_url != null)
             WebViewWidget(controller: _controller),
           if (_isLoading)
-            const Center(child: CircularProgressIndicator()), // Show loader while fetching
+            const Center(child: CircularProgressIndicator()), 
         ],
       ),
     );
