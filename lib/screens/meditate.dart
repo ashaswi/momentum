@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:video_player/video_player.dart';
 
 
 class Meditate extends StatefulWidget {
@@ -10,6 +11,44 @@ class Meditate extends StatefulWidget {
 }
 
 class _MeditateState extends State<Meditate> {
+  late VideoPlayerController _videoController;
+  bool _isPlaying = true;
+  Duration _position = Duration.zero;
+  Duration _duration = Duration.zero;
+
+  @override
+  void initState() {
+    super.initState();
+    _initVideoPlayer();
+  }
+
+  void _initVideoPlayer() {
+    _videoController = VideoPlayerController.asset('assets/images/breathe.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+        _videoController.play();
+        _videoController.setLooping(true);
+        _videoController.addListener(() {
+          setState(() {
+            _position = _videoController.value.position;
+            _duration = _videoController.value.duration;
+          });
+        });
+      });
+  }
+
+  String _formatDuration(Duration duration) {
+    String minutes = duration.inMinutes.remainder(60).toString().padLeft(2, '0');
+    String seconds = duration.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return '$minutes:$seconds';
+  }
+
+  @override
+  void dispose() {
+    _videoController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
    return Scaffold(
@@ -44,11 +83,102 @@ class _MeditateState extends State<Meditate> {
             ),
           ),
           Center(
-            child: Image.asset(
-              'assets/images/breathe.gif',
-              width: 500,
-              height: 500,
-              fit: BoxFit.cover,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Video
+                _videoController.value.isInitialized
+                    ? AspectRatio(
+                        aspectRatio: _videoController.value.aspectRatio,
+                        child: VideoPlayer(_videoController),
+                      )
+                    : const CircularProgressIndicator(),
+                // Teal circle with "Inhale" text
+              ],
+            ),
+          ),
+          // Progress bar and controls
+          Positioned(
+            bottom: 100,
+            left: 20,
+            right: 20,
+            child: Column(
+              children: [
+                // Progress bar with times
+                Row(
+                  children: [
+                    Text(_formatDuration(_position)),
+                    Expanded(
+                      child: SliderTheme(
+                        data: SliderThemeData(
+                          trackHeight: 4,
+                          activeTrackColor: Colors.purple,
+                          inactiveTrackColor: Colors.grey.shade300,
+                          thumbColor: Colors.purple,
+                          thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+                        ),
+                        child: Slider(
+                          value: _position.inSeconds.toDouble(),
+                          max: _duration.inSeconds.toDouble(),
+                          onChanged: (value) {
+                            final newPosition = Duration(seconds: value.toInt());
+                            _videoController.seekTo(newPosition);
+                          },
+                        ),
+                      ),
+                    ),
+                    Text(_formatDuration(_duration)),
+                  ],
+                ),
+                SizedBox(height: 20),
+                // Play/Pause controls
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Play button
+                    Container(
+                      width: 120,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFE6E1FA),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: IconButton(
+                        icon: Icon(Icons.play_arrow, color: Colors.purple),
+                        onPressed: () {
+                          if (!_isPlaying) {
+                            setState(() {
+                              _videoController.play();
+                              _isPlaying = true;
+                            });
+                          }
+                        },
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    // Pause button
+                    Container(
+                      width: 120,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFE6E1FA),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: IconButton(
+                        icon: Icon(Icons.pause, color: Colors.purple),
+                        onPressed: () {
+                          if (_isPlaying) {
+                            setState(() {
+                              _videoController.pause();
+                              _isPlaying = false;
+                            });
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
