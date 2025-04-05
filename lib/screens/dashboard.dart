@@ -27,10 +27,21 @@ class Dashboard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Header(
-                primayHeaderText: "Welcome Back,",
-                secondaryHeaderText: "Lorem!",
-                secondaryTextSize: 20,
+                 Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Header(
+                    primayHeaderText: "Welcome Back,",
+                    secondaryHeaderText: "Lorem!",
+                    secondaryTextSize: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.pushNamed(context, '/profile'),
+                    },
+                    child: Image.asset('assets/images/icons/profile.png',height: 50,)
+                    ),
+                ],
               ),
               const SizedBox(
                 height: 20,
@@ -98,6 +109,7 @@ class Dashboard extends StatelessWidget {
                         onTap: () => {
                           Navigator.pushNamed(context, '/habit'),
                         },
+
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

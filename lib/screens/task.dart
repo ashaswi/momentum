@@ -129,7 +129,7 @@ class _TaskState extends State<Task> {
 
             const SizedBox(height: 20),
             const Text(
-              'Start Date',
+              'Due Date',
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 20,

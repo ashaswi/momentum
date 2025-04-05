@@ -9,4 +9,5 @@ class ApiRoutes {
   static const String habit = 'habits/';
   static const String task = 'tasks/';
   static const String survey = 'surveys/';
+  static const String profile = 'profile/';
 }
