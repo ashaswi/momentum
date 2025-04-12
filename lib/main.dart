@@ -13,8 +13,32 @@ import 'package:momentum/screens/survey_screen.dart';
 import 'package:momentum/screens/habit.dart';
 import 'package:momentum/screens/task.dart';
 import 'package:momentum/screens/profile.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-void main() {
+@pragma('vm:entry-point')
+void notificationTapBackground(NotificationResponse notificationResponse) {
+  // handle
+}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+// initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
+  const AndroidInitializationSettings initializationSettingsAndroid =
+      AndroidInitializationSettings('@mipmap/ic_launcher');
+
+  const InitializationSettings initializationSettings = InitializationSettings(
+      android: initializationSettingsAndroid,
+      );
+
+  await flutterLocalNotificationsPlugin.initialize(
+    initializationSettings,
+    onDidReceiveNotificationResponse:
+        (NotificationResponse notificationResponse) async {
+      // ...
+    },
+    onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
+  );
   runApp(const MyApp());
 }
 
@@ -60,12 +84,30 @@ class MyApp extends StatelessWidget {
 
         // Defining Text Theme with Correct Colors
         textTheme: const TextTheme(
-          displayLarge: TextStyle(fontSize: 38, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          headlineLarge: TextStyle(fontSize: 32, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          headlineMedium: TextStyle(fontSize: 24, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          headlineSmall: TextStyle(fontSize: 16, color: Color(0xFF371B34), fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-          bodyLarge: TextStyle(fontSize: 18, color: Color(0xFF371B34), fontFamily: 'Poppins'),
-          bodyMedium: TextStyle(fontSize: 14, color: Color(0xFF371B34), fontFamily: 'Poppins'),
+         displayLarge: TextStyle(
+              fontSize: 38,
+              color: Color(0xFF371B34),
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Poppins'),
+          headlineLarge: TextStyle(
+              fontSize: 32,
+              color: Color(0xFF371B34),
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Poppins'),
+          headlineMedium: TextStyle(
+              fontSize: 24,
+              color: Color(0xFF371B34),
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Poppins'),
+          headlineSmall: TextStyle(
+              fontSize: 16,
+              color: Color(0xFF371B34),
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Poppins'),
+          bodyLarge: TextStyle(
+              fontSize: 18, color: Color(0xFF371B34), fontFamily: 'Poppins'),
+          bodyMedium: TextStyle(
+              fontSize: 14, color: Color(0xFF371B34), fontFamily: 'Poppins'),
         ),
 
         primaryTextTheme: const TextTheme(

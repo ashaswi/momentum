@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
+import 'package:momentum/api/service/notification/notification_service.dart';
 
 
 class Meditate extends StatefulWidget {
@@ -15,6 +16,7 @@ class _MeditateState extends State<Meditate> {
   bool _isPlaying = true;
   Duration _position = Duration.zero;
   Duration _duration = Duration.zero;
+  bool _notificationShown = false;
 
   @override
   void initState() {
@@ -23,19 +25,29 @@ class _MeditateState extends State<Meditate> {
   }
 
   void _initVideoPlayer() {
-    _videoController = VideoPlayerController.asset('assets/images/breathe.mp4')
-      ..initialize().then((_) {
-        setState(() {});
-        _videoController.play();
-        _videoController.setLooping(true);
-        _videoController.addListener(() {
-          setState(() {
-            _position = _videoController.value.position;
-            _duration = _videoController.value.duration;
-          });
+  _videoController = VideoPlayerController.asset('assets/images/breathe.mp4')
+    ..initialize().then((_) {
+      setState(() {});
+      _videoController.play();
+      // _videoController.setLooping(true); // remove this to allow detection of end
+      _videoController.addListener(() {
+        final position = _videoController.value.position;
+        final duration = _videoController.value.duration;
+
+        setState(() {
+          _position = position;
+          _duration = duration;
         });
+
+        if (!_notificationShown &&
+            duration.inSeconds > 0 &&
+            position >= duration) {
+          _notificationShown = true;
+          showNotification("Your session is complete. Breathe in the peace.",""); // Call your notification method here
+        }
       });
-  }
+    });
+}
 
   String _formatDuration(Duration duration) {
     String minutes = duration.inMinutes.remainder(60).toString().padLeft(2, '0');
