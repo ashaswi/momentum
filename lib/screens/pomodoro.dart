@@ -22,6 +22,7 @@ class _PomodoroState extends State<Pomodoro> {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (seconds == 0) {
         if (minutes == 0) {
+          showNotification("Pomodoro complete. Rest time!","");
           onFocus = !onFocus;
           minutes = onFocus ? 25 : 5;
           seconds = 0;
