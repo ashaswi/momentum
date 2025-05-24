@@ -25,7 +25,7 @@ class _MeditateState extends State<Meditate> {
   }
 
   void _initVideoPlayer() {
-  _videoController = VideoPlayerController.asset('assets/images/breathe.mp4')
+  _videoController = VideoPlayerController.asset('assets/images/meditation.mp4')
     ..initialize().then((_) {
       setState(() {});
       _videoController.play();

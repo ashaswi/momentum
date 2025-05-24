@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:momentum/Screens/base_screen.dart';
 import 'package:momentum/components/Header.dart';
@@ -33,14 +33,19 @@ class Dashboard extends StatelessWidget {
                 children: [
                   const Header(
                     primayHeaderText: "Welcome Back,",
-                    secondaryHeaderText: "Lorem!",
                     secondaryTextSize: 20,
                   ),
                   GestureDetector(
                     onTap: () => {
                       Navigator.pushNamed(context, '/profile'),
                     },
-                    child: Image.asset('assets/images/icons/profile.png',height: 50,)
+                    child: Image.asset(
+  'assets/images/icons/profile.png',
+  height: 50,
+  errorBuilder: (context, error, stackTrace) {
+    return const Icon(Icons.person); // fallback to person icon
+  },
+)
                     ),
                 ],
               ),

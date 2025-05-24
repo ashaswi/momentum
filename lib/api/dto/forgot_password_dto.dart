@@ -24,7 +24,7 @@ class ForgotPasswordDto {
       'code': code,
       'email': email,
       'new_password': newPassword,
-      'confirm_new_password':confirmNewPassword 
+      'confirm_new_password':confirmNewPassword
     };
   }
 }

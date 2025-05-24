@@ -25,7 +25,7 @@ class Api {
       'Accept': 'application/json',
     };
 
-    // Add the Authorization header only if the token is not null
+
     if (token != null) {
       headers['Authorization'] = 'Token $token';
     }
@@ -46,7 +46,6 @@ class Api {
       'Accept': 'application/json',
     };
 
-    // Add the Authorization header only if the token is not null
     if (token != null) {
       headers['Authorization'] = 'Token $token';
     }
@@ -67,7 +66,6 @@ class Api {
       'Accept': 'application/json',
     };
 
-    // Add the Authorization header only if the token is not null
     if (token != null) {
       headers['Authorization'] = 'Token $token';
     }
